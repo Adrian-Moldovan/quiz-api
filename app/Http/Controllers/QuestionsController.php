@@ -27,6 +27,7 @@ class QuestionsController extends Controller
     public function create()
     {
         //
+        echo 'all good!';
     }
 
     /**

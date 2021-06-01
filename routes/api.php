@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\QuestionsController;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,14 +21,18 @@ use App\Http\Controllers\QuestionsController;
 Route::get('/questions', [QuestionsController::class, 'index']);
 
 Route::post('/register', [AuthController::class, 'register']);
-Route::post('/tokens/create', function (Request $request) {
-    dd($request->user());
-    $token = $request->user()->createToken($request->token_name);
+Route::post('/login', [AuthController::class, 'login']);
 
-    return ['token' => $token->plainTextToken];
+
+Route::middleware('auth:sanctum')->group(function () {
+    // questions
+    Route::post('/questions', [QuestionsController::class, 'create']);
+
+    // users
+    Route::get('/user/{user}', [UsersController::class, 'show']);
 });
 
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
