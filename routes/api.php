@@ -18,8 +18,10 @@ use App\Http\Controllers\UsersController;
 |
 */
 
+// Public questions
 Route::get('/questions', [QuestionsController::class, 'index']);
 
+// users
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
@@ -31,8 +33,3 @@ Route::middleware('auth:sanctum')->group(function () {
     // users
     Route::get('/user/{user}', [UsersController::class, 'show']);
 });
-
-
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });

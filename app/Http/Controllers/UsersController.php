@@ -9,8 +9,9 @@ use App\Models\User;
 class UsersController extends Controller
 {
     /**
-     * Display the specified resource.
+     * Display informations about a user.
      *
+     * @group Users
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, User $user)

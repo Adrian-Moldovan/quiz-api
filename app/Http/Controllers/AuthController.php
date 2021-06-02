@@ -10,7 +10,11 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
-    //
+    /**
+     * Register a new user
+     * 
+     * @group Users
+     */
     public function register(Request $request){
         $validated = $request->validate([
             'email' => ['required', 'unique:users', 'email'],
@@ -27,7 +31,11 @@ class AuthController extends Controller
         return ['token' => $token->plainTextToken];
     }
 
-    // 
+    /**
+     * Login a user
+     * 
+     * @group Users
+     */
     public function login(Request $request){
         $credentials = $request->validate([
             'email' => ['required', 'email'],
