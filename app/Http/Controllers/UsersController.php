@@ -9,9 +9,12 @@ use App\Models\User;
 class UsersController extends Controller
 {
     /**
-     * Display informations about a user.
+     * Display a user profile.
      *
      * @group Users
+     * @authenticated
+     * @urlParam user integer required user_id profile.
+     * 
      * @return \Illuminate\Http\Response
      */
     public function show(Request $request, User $user)

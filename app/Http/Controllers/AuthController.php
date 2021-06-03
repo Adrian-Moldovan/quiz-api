@@ -14,6 +14,7 @@ class AuthController extends Controller
      * Register a new user
      * 
      * @group Users
+     * @return \Illuminate\Http\Response
      */
     public function register(Request $request){
         $validated = $request->validate([
@@ -35,6 +36,11 @@ class AuthController extends Controller
      * Login a user
      * 
      * @group Users
+     * @urlParam email string required 
+     * @urlParam password string required 
+     * @urlParam device_name string required 
+     * 
+     * @return \Illuminate\Http\Response
      */
     public function login(Request $request){
         $credentials = $request->validate([
@@ -50,7 +56,9 @@ class AuthController extends Controller
                 'auth' => ['The provided credentials are incorrect.'],
             ]);
         }
+
+        $token = $user->createToken($request->device_name)->plainTextToken;
     
-        return $user->createToken($request->device_name)->plainTextToken;
+        return ['token' => $token];
     }
 }

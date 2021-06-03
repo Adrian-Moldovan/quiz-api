@@ -24,12 +24,14 @@ class QuestionsController extends Controller
      * Store question and its answers.
      * 
      * @group Questions
+     * @authenticated
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         //
+        echo 'TO DO';
     }
 
     /**

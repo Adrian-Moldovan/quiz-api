@@ -106,11 +106,31 @@ fetch(url, {
 <small class="badge badge-black">POST</small>
  <b><code>api/login</code></b>
 </p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="email" data-endpoint="POSTapi-login" data-component="url" required  hidden>
+<br>
+
+</p>
+<p>
+<b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="password" name="password" data-endpoint="POSTapi-login" data-component="url" required  hidden>
+<br>
+
+</p>
+<p>
+<b><code>device_name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="device_name" data-endpoint="POSTapi-login" data-component="url" required  hidden>
+<br>
+
+</p>
 </form>
 
 
-## Display informations about a user.
+## Display a user profile.
 
+<small class="badge badge-darkred">requires authentication</small>
 
 
 
@@ -118,17 +138,19 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/user/vitae" \
+    -G "http://localhost/api/user/17" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/user/vitae"
+    "http://localhost/api/user/17"
 );
 
 let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
     "Content-Type": "application/json",
     "Accept": "application/json",
 };
@@ -156,7 +178,7 @@ fetch(url, {
     <blockquote>Request failed with error:</blockquote>
     <pre><code id="execution-error-message-GETapi-user--user-"></code></pre>
 </div>
-<form id="form-GETapi-user--user-" data-method="GET" data-path="api/user/{user}" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-user--user-', this);">
+<form id="form-GETapi-user--user-" data-method="GET" data-path="api/user/{user}" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-user--user-', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
         <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-user--user-" onclick="tryItOut('GETapi-user--user-');">Try it out ⚡</button>
@@ -167,12 +189,15 @@ fetch(url, {
 <small class="badge badge-green">GET</small>
  <b><code>api/user/{user}</code></b>
 </p>
+<p>
+<label id="auth-GETapi-user--user-" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-user--user-" data-component="header"></label>
+</p>
 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
 <p>
-<b><code>user</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="user" data-endpoint="GETapi-user--user-" data-component="url" required  hidden>
+<b><code>user</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="user" data-endpoint="GETapi-user--user-" data-component="url" required  hidden>
 <br>
-
+user_id profile.
 </p>
 </form>
 
