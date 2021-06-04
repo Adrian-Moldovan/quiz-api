@@ -10,14 +10,16 @@
 
 ```bash
 curl -X POST \
-    "http://localhost/api/register" \
+    "http://quiz.siit.ro/api/register" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
+    -H "Accept: application/json" \
+    -d '{"email":"skiles.emily@example.net","name":"quibusdam","password":"omnis","password_confirm":"quis","device_name":{}}'
+
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/register"
+    "http://quiz.siit.ro/api/register"
 );
 
 let headers = {
@@ -25,10 +27,18 @@ let headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "email": "skiles.emily@example.net",
+    "name": "quibusdam",
+    "password": "omnis",
+    "password_confirm": "quis",
+    "device_name": {}
+}
 
 fetch(url, {
     method: "POST",
     headers,
+    body: JSON.stringify(body),
 }).then(response => response.json());
 ```
 
@@ -52,6 +62,38 @@ fetch(url, {
 <small class="badge badge-black">POST</small>
  <b><code>api/register</code></b>
 </p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+<b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="email" data-endpoint="POSTapi-register" data-component="body" required  hidden>
+<br>
+The value must be a valid email address.
+</p>
+<p>
+<b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="name" data-endpoint="POSTapi-register" data-component="body" required  hidden>
+<br>
+
+</p>
+<p>
+<b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="password" name="password" data-endpoint="POSTapi-register" data-component="body" required  hidden>
+<br>
+
+</p>
+<p>
+<b><code>password_confirm</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="password" name="password_confirm" data-endpoint="POSTapi-register" data-component="body" required  hidden>
+<br>
+
+</p>
+<p>
+<b><code>device_name</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="device_name" data-endpoint="POSTapi-register" data-component="body"  hidden>
+<br>
+
+</p>
+
 </form>
 
 
@@ -64,14 +106,16 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://localhost/api/login" \
+    "http://quiz.siit.ro/api/login" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
+    -H "Accept: application/json" \
+    -d '{"email":"cornelius.schiller@example.com","password":"animi","device_name":{}}'
+
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/login"
+    "http://quiz.siit.ro/api/login"
 );
 
 let headers = {
@@ -79,10 +123,16 @@ let headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "email": "cornelius.schiller@example.com",
+    "password": "animi",
+    "device_name": {}
+}
 
 fetch(url, {
     method: "POST",
     headers,
+    body: JSON.stringify(body),
 }).then(response => response.json());
 ```
 
@@ -106,25 +156,26 @@ fetch(url, {
 <small class="badge badge-black">POST</small>
  <b><code>api/login</code></b>
 </p>
-<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
 <p>
 <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="email" data-endpoint="POSTapi-login" data-component="url" required  hidden>
+<input type="text" name="email" data-endpoint="POSTapi-login" data-component="body" required  hidden>
 <br>
-
+The value must be a valid email address.
 </p>
 <p>
 <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="password" name="password" data-endpoint="POSTapi-login" data-component="url" required  hidden>
+<input type="password" name="password" data-endpoint="POSTapi-login" data-component="body" required  hidden>
 <br>
 
 </p>
 <p>
-<b><code>device_name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="device_name" data-endpoint="POSTapi-login" data-component="url" required  hidden>
+<b><code>device_name</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="device_name" data-endpoint="POSTapi-login" data-component="body"  hidden>
 <br>
 
 </p>
+
 </form>
 
 
@@ -138,7 +189,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/user/17" \
+    -G "http://quiz.siit.ro/api/user/13" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -146,7 +197,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/user/17"
+    "http://quiz.siit.ro/api/user/13"
 );
 
 let headers = {

@@ -44,7 +44,7 @@
                             <li><a href='http://github.com/knuckleswtf/scribe'>Documentation powered by Scribe ✍</a></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: June 3 2021</li>
+            <li>Last updated: June 4 2021</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -57,14 +57,14 @@
 You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
 <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
 <script>
-    var baseUrl = "http://localhost";
+    var baseUrl = "http://quiz.siit.ro";
 </script>
 <script src="{{ asset("vendor/scribe/js/tryitout-2.7.6.js") }}"></script>
 <blockquote>
 <p>Base URL</p>
 </blockquote>
-<pre><code class="language-yaml">http://localhost</code></pre><h1>Authenticating requests</h1>
-<p>This API is authenticated by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<pre><code class="language-yaml">http://quiz.siit.ro</code></pre><h1>Authenticating requests</h1>
+<p>Authenticate requests to this API's endpoints by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.</p><h1>Questions</h1>
 <h2>Display a listing of questions and available answers.</h2>
@@ -72,11 +72,11 @@ You can switch the language used with the tabs at the top right (or from the nav
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost/api/questions" \
+    -G "http://quiz.siit.ro/api/questions" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/questions"
+    "http://quiz.siit.ro/api/questions"
 );
 
 let headers = {
@@ -399,12 +399,12 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/api/questions" \
+    "http://quiz.siit.ro/api/questions" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/questions"
+    "http://quiz.siit.ro/api/questions"
 );
 
 let headers = {
@@ -445,11 +445,13 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/api/register" \
+    "http://quiz.siit.ro/api/register" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"</code></pre>
+    -H "Accept: application/json" \
+    -d '{"email":"skiles.emily@example.net","name":"quibusdam","password":"omnis","password_confirm":"quis","device_name":{}}'
+</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/register"
+    "http://quiz.siit.ro/api/register"
 );
 
 let headers = {
@@ -457,9 +459,18 @@ let headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "email": "skiles.emily@example.net",
+    "name": "quibusdam",
+    "password": "omnis",
+    "password_confirm": "quis",
+    "device_name": {}
+}
+
 fetch(url, {
     method: "POST",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre>
 <div id="execution-results-POSTapi-register" hidden>
     <blockquote>Received response<span id="execution-response-status-POSTapi-register"></span>:</blockquote>
@@ -480,17 +491,51 @@ fetch(url, {
 <small class="badge badge-black">POST</small>
  <b><code>api/register</code></b>
 </p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+<b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="email" data-endpoint="POSTapi-register" data-component="body" required  hidden>
+<br>
+The value must be a valid email address.
+</p>
+<p>
+<b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="name" data-endpoint="POSTapi-register" data-component="body" required  hidden>
+<br>
+
+</p>
+<p>
+<b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="password" name="password" data-endpoint="POSTapi-register" data-component="body" required  hidden>
+<br>
+
+</p>
+<p>
+<b><code>password_confirm</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="password" name="password_confirm" data-endpoint="POSTapi-register" data-component="body" required  hidden>
+<br>
+
+</p>
+<p>
+<b><code>device_name</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="device_name" data-endpoint="POSTapi-register" data-component="body"  hidden>
+<br>
+
+</p>
+
 </form>
 <h2>Login a user</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://localhost/api/login" \
+    "http://quiz.siit.ro/api/login" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"</code></pre>
+    -H "Accept: application/json" \
+    -d '{"email":"cornelius.schiller@example.com","password":"animi","device_name":{}}'
+</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/login"
+    "http://quiz.siit.ro/api/login"
 );
 
 let headers = {
@@ -498,9 +543,16 @@ let headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "email": "cornelius.schiller@example.com",
+    "password": "animi",
+    "device_name": {}
+}
+
 fetch(url, {
     method: "POST",
     headers,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre>
 <div id="execution-results-POSTapi-login" hidden>
     <blockquote>Received response<span id="execution-response-status-POSTapi-login"></span>:</blockquote>
@@ -521,25 +573,26 @@ fetch(url, {
 <small class="badge badge-black">POST</small>
  <b><code>api/login</code></b>
 </p>
-<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
 <p>
 <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="email" data-endpoint="POSTapi-login" data-component="url" required  hidden>
+<input type="text" name="email" data-endpoint="POSTapi-login" data-component="body" required  hidden>
 <br>
-
+The value must be a valid email address.
 </p>
 <p>
 <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="password" name="password" data-endpoint="POSTapi-login" data-component="url" required  hidden>
+<input type="password" name="password" data-endpoint="POSTapi-login" data-component="body" required  hidden>
 <br>
 
 </p>
 <p>
-<b><code>device_name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="device_name" data-endpoint="POSTapi-login" data-component="url" required  hidden>
+<b><code>device_name</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="device_name" data-endpoint="POSTapi-login" data-component="body"  hidden>
 <br>
 
 </p>
+
 </form>
 <h2>Display a user profile.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
@@ -547,12 +600,12 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost/api/user/17" \
+    -G "http://quiz.siit.ro/api/user/13" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/user/17"
+    "http://quiz.siit.ro/api/user/13"
 );
 
 let headers = {

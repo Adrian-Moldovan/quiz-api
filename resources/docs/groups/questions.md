@@ -10,14 +10,14 @@
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/questions" \
+    -G "http://quiz.siit.ro/api/questions" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/questions"
+    "http://quiz.siit.ro/api/questions"
 );
 
 let headers = {
@@ -351,7 +351,7 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://localhost/api/questions" \
+    "http://quiz.siit.ro/api/questions" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -359,7 +359,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/questions"
+    "http://quiz.siit.ro/api/questions"
 );
 
 let headers = {

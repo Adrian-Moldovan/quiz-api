@@ -7,27 +7,26 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 
 use App\Models\User;
+use App\Http\Requests\LoginRequest;
+use App\Http\Requests\RegisterRequest;
 
 class AuthController extends Controller
 {
+
+    private $defaultDeviceName = 'unspeficied';
+
     /**
      * Register a new user
      * 
      * @group Users
      * @return \Illuminate\Http\Response
      */
-    public function register(Request $request){
-        $validated = $request->validate([
-            'email' => ['required', 'unique:users', 'email'],
-            'name' => ['required', 'unique:users', 'min:3', 'max: 30'],
-            'password' => ['required'],
-            'password_confirm' => ['required', 'same:password']
-        ]);
-
-        $validated['password'] = Hash::make($request->password);
+    public function register(RegisterRequest $request){
+        $credentials = $request->validated();
+        $credentials['password'] = Hash::make($request->password);
         
-        $user = User::create($validated);
-        $token = $user->createToken('api_token');
+        $user = User::create($credentials);
+        $token = $user->createToken($credentials['device_name'] ?? $this->defaultDeviceName);
 
         return ['token' => $token->plainTextToken];
     }
@@ -35,30 +34,26 @@ class AuthController extends Controller
     /**
      * Login a user
      * 
-     * @group Users
-     * @urlParam email string required 
-     * @urlParam password string required 
-     * @urlParam device_name string required 
+     * @group Users 
      * 
      * @return \Illuminate\Http\Response
      */
-    public function login(Request $request){
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
-            'device_name' => 'required'
-        ]);
+    public function login(LoginRequest $request){
+        $credentials = $request->validated();
 
-        $user = User::where(['email' => $request->email])->first();
+        $user = User::where(['email' => $credentials['email']])->first();
 
-        if (! $user || ! Hash::check($request->password, $user->password)) {
+        if (! $user || ! Hash::check($credentials['password'], $user->password)) {
             throw ValidationException::withMessages([
                 'auth' => ['The provided credentials are incorrect.'],
             ]);
         }
 
-        $token = $user->createToken($request->device_name)->plainTextToken;
+        $token = $user->createToken($credentials['device_name'] ?? $this->defaultDeviceName)->plainTextToken;
     
-        return ['token' => $token];
+        return [
+            'mesage' => 'Authentication successful',
+            'token' => $token
+        ];
     }
 }
