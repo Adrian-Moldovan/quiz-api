@@ -28,7 +28,10 @@ class AuthController extends Controller
         $user = User::create($credentials);
         $token = $user->createToken($credentials['device_name'] ?? $this->defaultDeviceName);
 
-        return ['token' => $token->plainTextToken];
+        return [
+            'mesage' => 'Registration successful',
+            'token' => $token
+        ];
     }
 
     /**

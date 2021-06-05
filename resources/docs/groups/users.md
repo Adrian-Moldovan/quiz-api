@@ -13,7 +13,7 @@ curl -X POST \
     "http://quiz.siit.ro/api/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"ewisozk@example.com","name":"reiciendis","password":"voluptatibus","password_confirm":"impedit","device_name":{}}'
+    -d '{"email":"angelo.yost@example.org","name":"iusto","password":"rerum","password_confirm":"voluptate","device_name":{}}'
 
 ```
 
@@ -28,10 +28,10 @@ let headers = {
 };
 
 let body = {
-    "email": "ewisozk@example.com",
-    "name": "reiciendis",
-    "password": "voluptatibus",
-    "password_confirm": "impedit",
+    "email": "angelo.yost@example.org",
+    "name": "iusto",
+    "password": "rerum",
+    "password_confirm": "voluptate",
     "device_name": {}
 }
 
@@ -109,7 +109,7 @@ curl -X POST \
     "http://quiz.siit.ro/api/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"mschmidt@example.org","password":"rerum","device_name":{}}'
+    -d '{"email":"qprohaska@example.com","password":"laudantium","device_name":{}}'
 
 ```
 
@@ -124,8 +124,8 @@ let headers = {
 };
 
 let body = {
-    "email": "mschmidt@example.org",
-    "password": "rerum",
+    "email": "qprohaska@example.com",
+    "password": "laudantium",
     "device_name": {}
 }
 
@@ -189,7 +189,7 @@ The value must be a valid email address.
 
 ```bash
 curl -X GET \
-    -G "http://quiz.siit.ro/api/user/14" \
+    -G "http://quiz.siit.ro/api/user/19" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -197,7 +197,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://quiz.siit.ro/api/user/14"
+    "http://quiz.siit.ro/api/user/19"
 );
 
 let headers = {
