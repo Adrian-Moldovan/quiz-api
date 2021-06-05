@@ -30,7 +30,7 @@ class AuthController extends Controller
 
         return [
             'mesage' => 'Registration successful',
-            'token' => $token
+            'token' => $token->plainTextToken
         ];
     }
 
