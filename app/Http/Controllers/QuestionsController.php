@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Question;
+use App\Http\Requests\QuestionPostRequest;
 
 class QuestionsController extends Controller
 {
@@ -28,10 +29,14 @@ class QuestionsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(QuestionPostRequest $request)
     {
+
+        dd($request->answers);
+        // $validated = $request->validated();
+
         //
-        echo 'TO DO';
+        // dd($validated);
     }
 
     /**

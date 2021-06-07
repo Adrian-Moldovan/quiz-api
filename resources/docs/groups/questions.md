@@ -354,7 +354,9 @@ curl -X POST \
     "http://quiz.siit.ro/api/questions" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
+    -H "Accept: application/json" \
+    -d '{"question":"aut","answers":[{"text":"blanditiis","right":"quis"}]}'
+
 ```
 
 ```javascript
@@ -368,10 +370,20 @@ let headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "question": "aut",
+    "answers": [
+        {
+            "text": "blanditiis",
+            "right": "quis"
+        }
+    ]
+}
 
 fetch(url, {
     method: "POST",
     headers,
+    body: JSON.stringify(body),
 }).then(response => response.json());
 ```
 
@@ -398,6 +410,36 @@ fetch(url, {
 <p>
 <label id="auth-POSTapi-questions" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="POSTapi-questions" data-component="header"></label>
 </p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+<b><code>question</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="question" data-endpoint="POSTapi-questions" data-component="body" required  hidden>
+<br>
+
+</p>
+<p>
+<details>
+<summary>
+<b><code>answers</code></b>&nbsp;&nbsp;<small>object[]</small>     <i>optional</i> &nbsp;
+<br>
+
+</summary>
+<br>
+<p>
+<b><code>answers[].text</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="answers.0.text" data-endpoint="POSTapi-questions" data-component="body" required  hidden>
+<br>
+
+</p>
+<p>
+<b><code>answers[].right</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="answers.0.right" data-endpoint="POSTapi-questions" data-component="body" required  hidden>
+<br>
+
+</p>
+</details>
+</p>
+
 </form>
 
 
