@@ -40,282 +40,394 @@ fetch(url, {
     {
         "id": 1,
         "question": "What is the capital of Chile?",
-        "created_at": "2021-05-31T05:57:41.000000Z",
-        "updated_at": "2021-05-31T05:57:41.000000Z",
+        "user_id": 1,
+        "created_at": "2021-06-08T06:19:07.000000Z",
+        "updated_at": "2021-06-08T06:19:07.000000Z",
         "answers": [
             {
                 "id": 1,
                 "text": "Santiago",
                 "right": 1,
                 "question_id": 1,
-                "created_at": "2021-05-31T05:57:41.000000Z",
-                "updated_at": "2021-05-31T05:57:41.000000Z"
+                "created_at": "2021-06-08T06:19:07.000000Z",
+                "updated_at": "2021-06-08T06:19:07.000000Z"
             },
             {
                 "id": 2,
                 "text": "Buenos Aires",
                 "right": 0,
                 "question_id": 1,
-                "created_at": "2021-05-31T05:57:41.000000Z",
-                "updated_at": "2021-05-31T05:57:41.000000Z"
+                "created_at": "2021-06-08T06:19:07.000000Z",
+                "updated_at": "2021-06-08T06:19:07.000000Z"
             },
             {
                 "id": 3,
                 "text": "Bucharest",
                 "right": 0,
                 "question_id": 1,
-                "created_at": "2021-05-31T05:57:41.000000Z",
-                "updated_at": "2021-05-31T05:57:41.000000Z"
+                "created_at": "2021-06-08T06:19:07.000000Z",
+                "updated_at": "2021-06-08T06:19:07.000000Z"
             },
             {
                 "id": 4,
                 "text": "Russia",
                 "right": 0,
                 "question_id": 1,
-                "created_at": "2021-05-31T05:57:41.000000Z",
-                "updated_at": "2021-05-31T05:57:41.000000Z"
+                "created_at": "2021-06-08T06:19:07.000000Z",
+                "updated_at": "2021-06-08T06:19:07.000000Z"
             }
-        ]
+        ],
+        "user": {
+            "id": 1,
+            "name": "Inani Mate",
+            "email": "test@test.com",
+            "email_verified_at": null,
+            "created_at": "2021-06-08T06:19:07.000000Z",
+            "updated_at": "2021-06-08T06:19:07.000000Z"
+        }
     },
     {
         "id": 2,
         "question": "What is the smallest country in the world?",
-        "created_at": "2021-05-31T05:57:41.000000Z",
-        "updated_at": "2021-05-31T05:57:41.000000Z",
+        "user_id": 1,
+        "created_at": "2021-06-08T06:19:07.000000Z",
+        "updated_at": "2021-06-08T06:19:07.000000Z",
         "answers": [
             {
                 "id": 5,
                 "text": "Vatican City",
                 "right": 1,
                 "question_id": 2,
-                "created_at": "2021-05-31T05:57:41.000000Z",
-                "updated_at": "2021-05-31T05:57:41.000000Z"
+                "created_at": "2021-06-08T06:19:07.000000Z",
+                "updated_at": "2021-06-08T06:19:07.000000Z"
             },
             {
                 "id": 6,
                 "text": "Luxemburg",
                 "right": 0,
                 "question_id": 2,
-                "created_at": "2021-05-31T05:57:41.000000Z",
-                "updated_at": "2021-05-31T05:57:41.000000Z"
+                "created_at": "2021-06-08T06:19:07.000000Z",
+                "updated_at": "2021-06-08T06:19:07.000000Z"
             },
             {
                 "id": 7,
                 "text": "India",
                 "right": 0,
                 "question_id": 2,
-                "created_at": "2021-05-31T05:57:41.000000Z",
-                "updated_at": "2021-05-31T05:57:41.000000Z"
+                "created_at": "2021-06-08T06:19:07.000000Z",
+                "updated_at": "2021-06-08T06:19:07.000000Z"
             },
             {
                 "id": 8,
                 "text": "Liechtenstein",
                 "right": 0,
                 "question_id": 2,
-                "created_at": "2021-05-31T05:57:41.000000Z",
-                "updated_at": "2021-05-31T05:57:41.000000Z"
+                "created_at": "2021-06-08T06:19:07.000000Z",
+                "updated_at": "2021-06-08T06:19:07.000000Z"
             }
-        ]
+        ],
+        "user": {
+            "id": 1,
+            "name": "Inani Mate",
+            "email": "test@test.com",
+            "email_verified_at": null,
+            "created_at": "2021-06-08T06:19:07.000000Z",
+            "updated_at": "2021-06-08T06:19:07.000000Z"
+        }
     },
     {
         "id": 3,
         "question": "What is the most famous Mexican beer?",
-        "created_at": "2021-05-31T05:57:41.000000Z",
-        "updated_at": "2021-05-31T05:57:41.000000Z",
+        "user_id": 1,
+        "created_at": "2021-06-08T06:19:07.000000Z",
+        "updated_at": "2021-06-08T06:19:07.000000Z",
         "answers": [
             {
                 "id": 9,
                 "text": "Corona",
                 "right": 1,
                 "question_id": 3,
-                "created_at": "2021-05-31T05:57:41.000000Z",
-                "updated_at": "2021-05-31T05:57:41.000000Z"
+                "created_at": "2021-06-08T06:19:07.000000Z",
+                "updated_at": "2021-06-08T06:19:07.000000Z"
             },
             {
                 "id": 10,
                 "text": "Timisoreana",
                 "right": 0,
                 "question_id": 3,
-                "created_at": "2021-05-31T05:57:41.000000Z",
-                "updated_at": "2021-05-31T05:57:41.000000Z"
+                "created_at": "2021-06-08T06:19:07.000000Z",
+                "updated_at": "2021-06-08T06:19:07.000000Z"
             },
             {
                 "id": 11,
                 "text": "Ursus",
                 "right": 0,
                 "question_id": 3,
-                "created_at": "2021-05-31T05:57:41.000000Z",
-                "updated_at": "2021-05-31T05:57:41.000000Z"
+                "created_at": "2021-06-08T06:19:07.000000Z",
+                "updated_at": "2021-06-08T06:19:07.000000Z"
             },
             {
                 "id": 12,
                 "text": "Palinca de prune",
                 "right": 0,
                 "question_id": 3,
-                "created_at": "2021-05-31T05:57:41.000000Z",
-                "updated_at": "2021-05-31T05:57:41.000000Z"
+                "created_at": "2021-06-08T06:19:07.000000Z",
+                "updated_at": "2021-06-08T06:19:07.000000Z"
             }
-        ]
+        ],
+        "user": {
+            "id": 1,
+            "name": "Inani Mate",
+            "email": "test@test.com",
+            "email_verified_at": null,
+            "created_at": "2021-06-08T06:19:07.000000Z",
+            "updated_at": "2021-06-08T06:19:07.000000Z"
+        }
     },
     {
         "id": 4,
         "question": "What is Scooby Doo’s full name?",
-        "created_at": "2021-05-31T05:57:41.000000Z",
-        "updated_at": "2021-05-31T05:57:41.000000Z",
+        "user_id": 1,
+        "created_at": "2021-06-08T06:19:07.000000Z",
+        "updated_at": "2021-06-08T06:19:07.000000Z",
         "answers": [
             {
                 "id": 13,
                 "text": "Scoobert Doo",
                 "right": 1,
                 "question_id": 4,
-                "created_at": "2021-05-31T05:57:41.000000Z",
-                "updated_at": "2021-05-31T05:57:41.000000Z"
+                "created_at": "2021-06-08T06:19:07.000000Z",
+                "updated_at": "2021-06-08T06:19:07.000000Z"
             },
             {
                 "id": 14,
                 "text": "Scoob Doolitle",
                 "right": 0,
                 "question_id": 4,
-                "created_at": "2021-05-31T05:57:41.000000Z",
-                "updated_at": "2021-05-31T05:57:41.000000Z"
+                "created_at": "2021-06-08T06:19:07.000000Z",
+                "updated_at": "2021-06-08T06:19:07.000000Z"
             },
             {
                 "id": 15,
                 "text": "Scooba Dive",
                 "right": 0,
                 "question_id": 4,
-                "created_at": "2021-05-31T05:57:41.000000Z",
-                "updated_at": "2021-05-31T05:57:41.000000Z"
+                "created_at": "2021-06-08T06:19:07.000000Z",
+                "updated_at": "2021-06-08T06:19:07.000000Z"
             },
             {
                 "id": 16,
                 "text": "Greg",
                 "right": 0,
                 "question_id": 4,
-                "created_at": "2021-05-31T05:57:41.000000Z",
-                "updated_at": "2021-05-31T05:57:41.000000Z"
+                "created_at": "2021-06-08T06:19:07.000000Z",
+                "updated_at": "2021-06-08T06:19:07.000000Z"
             }
-        ]
+        ],
+        "user": {
+            "id": 1,
+            "name": "Inani Mate",
+            "email": "test@test.com",
+            "email_verified_at": null,
+            "created_at": "2021-06-08T06:19:07.000000Z",
+            "updated_at": "2021-06-08T06:19:07.000000Z"
+        }
     },
     {
         "id": 5,
         "question": "What is the collective noun for a group of unicorns?",
-        "created_at": "2021-05-31T05:57:41.000000Z",
-        "updated_at": "2021-05-31T05:57:41.000000Z",
+        "user_id": 1,
+        "created_at": "2021-06-08T06:19:07.000000Z",
+        "updated_at": "2021-06-08T06:19:07.000000Z",
         "answers": [
             {
                 "id": 17,
                 "text": "A blessing",
                 "right": 1,
                 "question_id": 5,
-                "created_at": "2021-05-31T05:57:41.000000Z",
-                "updated_at": "2021-05-31T05:57:41.000000Z"
+                "created_at": "2021-06-08T06:19:07.000000Z",
+                "updated_at": "2021-06-08T06:19:07.000000Z"
             },
             {
                 "id": 18,
                 "text": "A pack",
                 "right": 0,
                 "question_id": 5,
-                "created_at": "2021-05-31T05:57:41.000000Z",
-                "updated_at": "2021-05-31T05:57:41.000000Z"
+                "created_at": "2021-06-08T06:19:07.000000Z",
+                "updated_at": "2021-06-08T06:19:07.000000Z"
             },
             {
                 "id": 19,
                 "text": "A gang",
                 "right": 0,
                 "question_id": 5,
-                "created_at": "2021-05-31T05:57:41.000000Z",
-                "updated_at": "2021-05-31T05:57:41.000000Z"
+                "created_at": "2021-06-08T06:19:07.000000Z",
+                "updated_at": "2021-06-08T06:19:07.000000Z"
             },
             {
                 "id": 20,
                 "text": "A flock",
                 "right": 0,
                 "question_id": 5,
-                "created_at": "2021-05-31T05:57:41.000000Z",
-                "updated_at": "2021-05-31T05:57:41.000000Z"
+                "created_at": "2021-06-08T06:19:07.000000Z",
+                "updated_at": "2021-06-08T06:19:07.000000Z"
             }
-        ]
+        ],
+        "user": {
+            "id": 1,
+            "name": "Inani Mate",
+            "email": "test@test.com",
+            "email_verified_at": null,
+            "created_at": "2021-06-08T06:19:07.000000Z",
+            "updated_at": "2021-06-08T06:19:07.000000Z"
+        }
     },
     {
         "id": 6,
         "question": "Who composed the music for Sonic the Hedgehog 3?",
-        "created_at": "2021-05-31T05:57:41.000000Z",
-        "updated_at": "2021-05-31T05:57:41.000000Z",
+        "user_id": 1,
+        "created_at": "2021-06-08T06:19:07.000000Z",
+        "updated_at": "2021-06-08T06:19:07.000000Z",
         "answers": [
             {
                 "id": 21,
                 "text": "Michael Jackson",
                 "right": 1,
                 "question_id": 6,
-                "created_at": "2021-05-31T05:57:41.000000Z",
-                "updated_at": "2021-05-31T05:57:41.000000Z"
+                "created_at": "2021-06-08T06:19:07.000000Z",
+                "updated_at": "2021-06-08T06:19:07.000000Z"
             },
             {
                 "id": 22,
                 "text": "Fuego",
                 "right": 0,
                 "question_id": 6,
-                "created_at": "2021-05-31T05:57:41.000000Z",
-                "updated_at": "2021-05-31T05:57:41.000000Z"
+                "created_at": "2021-06-08T06:19:07.000000Z",
+                "updated_at": "2021-06-08T06:19:07.000000Z"
             },
             {
                 "id": 23,
                 "text": "The Pope",
                 "right": 0,
                 "question_id": 6,
-                "created_at": "2021-05-31T05:57:41.000000Z",
-                "updated_at": "2021-05-31T05:57:41.000000Z"
+                "created_at": "2021-06-08T06:19:07.000000Z",
+                "updated_at": "2021-06-08T06:19:07.000000Z"
             },
             {
                 "id": 24,
                 "text": "Himself",
                 "right": 0,
                 "question_id": 6,
-                "created_at": "2021-05-31T05:57:41.000000Z",
-                "updated_at": "2021-05-31T05:57:41.000000Z"
+                "created_at": "2021-06-08T06:19:07.000000Z",
+                "updated_at": "2021-06-08T06:19:07.000000Z"
             }
-        ]
+        ],
+        "user": {
+            "id": 1,
+            "name": "Inani Mate",
+            "email": "test@test.com",
+            "email_verified_at": null,
+            "created_at": "2021-06-08T06:19:07.000000Z",
+            "updated_at": "2021-06-08T06:19:07.000000Z"
+        }
     },
     {
         "id": 7,
         "question": "The first hockey pucks used in early outdoor hockey games were made of what?",
-        "created_at": "2021-05-31T05:57:41.000000Z",
-        "updated_at": "2021-05-31T05:57:41.000000Z",
+        "user_id": 1,
+        "created_at": "2021-06-08T06:19:07.000000Z",
+        "updated_at": "2021-06-08T06:19:07.000000Z",
         "answers": [
             {
                 "id": 25,
                 "text": "Frozen cow dung",
                 "right": 1,
                 "question_id": 7,
-                "created_at": "2021-05-31T05:57:41.000000Z",
-                "updated_at": "2021-05-31T05:57:41.000000Z"
+                "created_at": "2021-06-08T06:19:07.000000Z",
+                "updated_at": "2021-06-08T06:19:07.000000Z"
             },
             {
                 "id": 26,
                 "text": "Frozen chicken dung",
                 "right": 0,
                 "question_id": 7,
-                "created_at": "2021-05-31T05:57:41.000000Z",
-                "updated_at": "2021-05-31T05:57:41.000000Z"
+                "created_at": "2021-06-08T06:19:07.000000Z",
+                "updated_at": "2021-06-08T06:19:07.000000Z"
             },
             {
                 "id": 27,
                 "text": "Guano",
                 "right": 0,
                 "question_id": 7,
-                "created_at": "2021-05-31T05:57:41.000000Z",
-                "updated_at": "2021-05-31T05:57:41.000000Z"
+                "created_at": "2021-06-08T06:19:07.000000Z",
+                "updated_at": "2021-06-08T06:19:07.000000Z"
             },
             {
                 "id": 28,
                 "text": "Leather",
                 "right": 0,
                 "question_id": 7,
-                "created_at": "2021-05-31T05:57:41.000000Z",
-                "updated_at": "2021-05-31T05:57:41.000000Z"
+                "created_at": "2021-06-08T06:19:07.000000Z",
+                "updated_at": "2021-06-08T06:19:07.000000Z"
             }
-        ]
+        ],
+        "user": {
+            "id": 1,
+            "name": "Inani Mate",
+            "email": "test@test.com",
+            "email_verified_at": null,
+            "created_at": "2021-06-08T06:19:07.000000Z",
+            "updated_at": "2021-06-08T06:19:07.000000Z"
+        }
+    },
+    {
+        "id": 8,
+        "question": "Iceland diverted roads to avoid disturbing communities of what?",
+        "user_id": 2,
+        "created_at": "2021-06-08T06:20:07.000000Z",
+        "updated_at": "2021-06-08T06:20:07.000000Z",
+        "answers": [
+            {
+                "id": 29,
+                "text": "Moose",
+                "right": 0,
+                "question_id": 8,
+                "created_at": "2021-06-08T06:20:07.000000Z",
+                "updated_at": "2021-06-08T06:20:07.000000Z"
+            },
+            {
+                "id": 30,
+                "text": "Dwarfs",
+                "right": 0,
+                "question_id": 8,
+                "created_at": "2021-06-08T06:20:07.000000Z",
+                "updated_at": "2021-06-08T06:20:07.000000Z"
+            },
+            {
+                "id": 31,
+                "text": "Beavers",
+                "right": 0,
+                "question_id": 8,
+                "created_at": "2021-06-08T06:20:07.000000Z",
+                "updated_at": "2021-06-08T06:20:07.000000Z"
+            },
+            {
+                "id": 32,
+                "text": "Elves",
+                "right": 1,
+                "question_id": 8,
+                "created_at": "2021-06-08T06:20:07.000000Z",
+                "updated_at": "2021-06-08T06:20:07.000000Z"
+            }
+        ],
+        "user": {
+            "id": 2,
+            "name": "Adi M.1",
+            "email": "ma.moldovan1@gmail.com",
+            "email_verified_at": null,
+            "created_at": "2021-06-08T06:19:28.000000Z",
+            "updated_at": "2021-06-08T06:19:28.000000Z"
+        }
     }
 ]
 ```
@@ -355,7 +467,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"question":"aut","answers":[{"text":"blanditiis","right":"quis"}]}'
+    -d '{"question":"adipisci","answers":[{"text":"vitae","right":"quia"}]}'
 
 ```
 
@@ -371,11 +483,11 @@ let headers = {
 };
 
 let body = {
-    "question": "aut",
+    "question": "adipisci",
     "answers": [
         {
-            "text": "blanditiis",
-            "right": "quis"
+            "text": "vitae",
+            "right": "quia"
         }
     ]
 }

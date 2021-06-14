@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Question;
+use App\Models\Answer;
 use App\Http\Requests\QuestionPostRequest;
 
 class QuestionsController extends Controller
@@ -18,7 +21,7 @@ class QuestionsController extends Controller
     public function index()
     {
         //
-        return Question::with('answers')->get();
+        return Question::with('answers')->with('user')->get();
     }
 
     /**
@@ -31,12 +34,21 @@ class QuestionsController extends Controller
      */
     public function store(QuestionPostRequest $request)
     {
+        $validated = $request->validated();
 
-        dd($request->answers);
-        // $validated = $request->validated();
+        $question = Question::create([
+            'question' => $validated['question'],
+            'user_id' => Auth::user()->id
+        ]);
 
-        //
-        // dd($validated);
+        foreach($validated['answers'] as $answer){
+            $answer['question_id'] = $question->id;
+            Answer::create($answer);
+        }
+
+        $storedData = Question::with('answers')->find($question->id);
+
+        return response()->json(['message' => 'question added', 'question' => $storedData], Response::HTTP_CREATED);
     }
 
     /**

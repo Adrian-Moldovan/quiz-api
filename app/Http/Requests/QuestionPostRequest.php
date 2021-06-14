@@ -26,7 +26,7 @@ class QuestionPostRequest extends FormRequest
         return [
             'question' => ['required', 'unique:questions', 'min:3', 'max:255'],
             'answers' => ['required', 'array', 'min:4', 'max:4'],
-            'answers.*.text' => ['required', 'min: 3', 'max: 255'],
+            'answers.*.text' => ['required', 'min:3', 'max:255'],
             'answers.*.right' => ['required', 'regex: /^0|1$/']
         ];
     }
