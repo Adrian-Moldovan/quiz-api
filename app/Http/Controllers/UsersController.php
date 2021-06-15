@@ -3,11 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
+
 use App\Models\User;
 
 class UsersController extends Controller
 {
+    /**
+     * Displays the users list.
+     *
+     * @group Users
+     * @authenticated
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function index(){
+        $countQuery = '(SELECT COUNT(*) AS questions, user_id  FROM questions GROUP BY user_id) AS questions_count';
+        $users = DB::table('users')->leftJoin(DB::raw($countQuery), 'questions_count.user_id', '=', 'users.id')->get();
+
+        return $users->map(function($user){
+            $filteredData = collect($user)->only(['id', 'name', 'email','questions']);
+            $filteredData['questions'] = (int)$filteredData['questions'];
+            return $filteredData;
+        });
+    }
+
     /**
      * Display a user profile.
      *

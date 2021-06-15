@@ -467,7 +467,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"question":"adipisci","answers":[{"text":"vitae","right":"quia"}]}'
+    -d '{"question":"omnis","answers":[{"text":"qui","right":"consequatur"}]}'
 
 ```
 
@@ -483,11 +483,11 @@ let headers = {
 };
 
 let body = {
-    "question": "adipisci",
+    "question": "omnis",
     "answers": [
         {
-            "text": "vitae",
-            "right": "quia"
+            "text": "qui",
+            "right": "consequatur"
         }
     ]
 }

@@ -13,7 +13,7 @@ curl -X POST \
     "http://quiz.siit.ro/api/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"beth.bartoletti@example.net","name":"doloremque","password":"vitae","password_confirm":"doloremque","device_name":{}}'
+    -d '{"email":"lehner.odessa@example.com","name":"ex","password":"in","password_confirm":"laudantium","device_name":{}}'
 
 ```
 
@@ -28,10 +28,10 @@ let headers = {
 };
 
 let body = {
-    "email": "beth.bartoletti@example.net",
-    "name": "doloremque",
-    "password": "vitae",
-    "password_confirm": "doloremque",
+    "email": "lehner.odessa@example.com",
+    "name": "ex",
+    "password": "in",
+    "password_confirm": "laudantium",
     "device_name": {}
 }
 
@@ -109,7 +109,7 @@ curl -X POST \
     "http://quiz.siit.ro/api/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"ydooley@example.net","password":"consequatur","device_name":{}}'
+    -d '{"email":"xziemann@example.com","password":"ullam","device_name":{}}'
 
 ```
 
@@ -124,8 +124,8 @@ let headers = {
 };
 
 let body = {
-    "email": "ydooley@example.net",
-    "password": "consequatur",
+    "email": "xziemann@example.com",
+    "password": "ullam",
     "device_name": {}
 }
 
@@ -179,7 +179,7 @@ The value must be a valid email address.
 </form>
 
 
-## Display a user profile.
+## Displays the users list.
 
 <small class="badge badge-darkred">requires authentication</small>
 
@@ -189,7 +189,7 @@ The value must be a valid email address.
 
 ```bash
 curl -X GET \
-    -G "http://quiz.siit.ro/api/user/10" \
+    -G "http://quiz.siit.ro/api/users" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -197,7 +197,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://quiz.siit.ro/api/user/10"
+    "http://quiz.siit.ro/api/users"
 );
 
 let headers = {
@@ -221,32 +221,99 @@ fetch(url, {
     "message": "Unauthenticated."
 }
 ```
-<div id="execution-results-GETapi-user--user-" hidden>
-    <blockquote>Received response<span id="execution-response-status-GETapi-user--user-"></span>:</blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-user--user-"></code></pre>
+<div id="execution-results-GETapi-users" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-users"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-users"></code></pre>
 </div>
-<div id="execution-error-GETapi-user--user-" hidden>
+<div id="execution-error-GETapi-users" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-user--user-"></code></pre>
+    <pre><code id="execution-error-message-GETapi-users"></code></pre>
 </div>
-<form id="form-GETapi-user--user-" data-method="GET" data-path="api/user/{user}" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-user--user-', this);">
+<form id="form-GETapi-users" data-method="GET" data-path="api/users" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-users', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
-        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-user--user-" onclick="tryItOut('GETapi-user--user-');">Try it out ⚡</button>
-    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-user--user-" onclick="cancelTryOut('GETapi-user--user-');" hidden>Cancel</button>&nbsp;&nbsp;
-    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-user--user-" hidden>Send Request 💥</button>
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-users" onclick="tryItOut('GETapi-users');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-users" onclick="cancelTryOut('GETapi-users');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-users" hidden>Send Request 💥</button>
     </h3>
 <p>
 <small class="badge badge-green">GET</small>
- <b><code>api/user/{user}</code></b>
+ <b><code>api/users</code></b>
 </p>
 <p>
-<label id="auth-GETapi-user--user-" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-user--user-" data-component="header"></label>
+<label id="auth-GETapi-users" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-users" data-component="header"></label>
+</p>
+</form>
+
+
+## Display a user profile.
+
+<small class="badge badge-darkred">requires authentication</small>
+
+
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://quiz.siit.ro/api/users/15" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://quiz.siit.ro/api/users/15"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response => response.json());
+```
+
+
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
+<div id="execution-results-GETapi-users--user-" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-users--user-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-users--user-"></code></pre>
+</div>
+<div id="execution-error-GETapi-users--user-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-users--user-"></code></pre>
+</div>
+<form id="form-GETapi-users--user-" data-method="GET" data-path="api/users/{user}" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-users--user-', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-users--user-" onclick="tryItOut('GETapi-users--user-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-users--user-" onclick="cancelTryOut('GETapi-users--user-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-users--user-" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/users/{user}</code></b>
+</p>
+<p>
+<label id="auth-GETapi-users--user-" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-users--user-" data-component="header"></label>
 </p>
 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
 <p>
 <b><code>user</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
-<input type="number" name="user" data-endpoint="GETapi-user--user-" data-component="url" required  hidden>
+<input type="number" name="user" data-endpoint="GETapi-users--user-" data-component="url" required  hidden>
 <br>
 user_id profile.
 </p>

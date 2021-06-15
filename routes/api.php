@@ -31,5 +31,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/questions', [QuestionsController::class, 'store']);
 
     // users
-    Route::get('/user/{user}', [UsersController::class, 'show']);
+    Route::get('/users', [UsersController::class, 'index']);
+    Route::get('/users/{user}', [UsersController::class, 'show']);
 });
