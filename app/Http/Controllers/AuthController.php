@@ -19,6 +19,12 @@ class AuthController extends Controller
      * Register a new user
      * 
      * @group Users
+     * @bodyParam email string required user email.
+     * @bodyParam name string required user name.
+     * @bodyParam password string required user password.
+     * @bodyParam password_confirm string required password confirmation.
+     * @bodyParam device_name string user device name.
+     * 
      * @return \Illuminate\Http\Response
      */
     public function register(RegisterRequest $request){
@@ -38,6 +44,9 @@ class AuthController extends Controller
      * Login a user
      * 
      * @group Users 
+     * @bodyParam email string required user email.
+     * @bodyParam password string required user name.
+     * @bodyParam device_name string user device name.
      * 
      * @return \Illuminate\Http\Response
      */

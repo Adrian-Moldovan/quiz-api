@@ -383,7 +383,7 @@ fetch(url, {
     {
         "id": 8,
         "question": "Iceland diverted roads to avoid disturbing communities of what?",
-        "user_id": 2,
+        "user_id": 1,
         "created_at": "2021-06-08T06:20:07.000000Z",
         "updated_at": "2021-06-08T06:20:07.000000Z",
         "answers": [
@@ -421,12 +421,12 @@ fetch(url, {
             }
         ],
         "user": {
-            "id": 2,
-            "name": "Adi M.1",
-            "email": "ma.moldovan1@gmail.com",
+            "id": 1,
+            "name": "Inani Mate",
+            "email": "test@test.com",
             "email_verified_at": null,
-            "created_at": "2021-06-08T06:19:28.000000Z",
-            "updated_at": "2021-06-08T06:19:28.000000Z"
+            "created_at": "2021-06-08T06:19:07.000000Z",
+            "updated_at": "2021-06-08T06:19:07.000000Z"
         }
     }
 ]
@@ -467,7 +467,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"question":"omnis","answers":[{"text":"qui","right":"consequatur"}]}'
+    -d '{"question":"esse","answers":[{"text":"sint","right":"et"}]}'
 
 ```
 
@@ -483,11 +483,11 @@ let headers = {
 };
 
 let body = {
-    "question": "omnis",
+    "question": "esse",
     "answers": [
         {
-            "text": "qui",
-            "right": "consequatur"
+            "text": "sint",
+            "right": "et"
         }
     ]
 }

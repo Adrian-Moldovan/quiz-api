@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\User;
@@ -37,8 +38,21 @@ class UsersController extends Controller
      * 
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, User $user)
+    public function show(User $user)
     {
         return $user->only(['name', 'email']);
+    }
+
+    /**
+     * Displays the profile of the authenticated user
+     *
+     * @group Users
+     * @authenticated
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function profile()
+    {
+        return Auth::user();
     }
 }

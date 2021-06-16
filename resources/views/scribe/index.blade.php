@@ -44,7 +44,7 @@
                             <li><a href='http://github.com/knuckleswtf/scribe'>Documentation powered by Scribe ✍</a></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: June 15 2021</li>
+            <li>Last updated: June 16 2021</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -438,7 +438,7 @@ fetch(url, {
     {
         "id": 8,
         "question": "Iceland diverted roads to avoid disturbing communities of what?",
-        "user_id": 2,
+        "user_id": 1,
         "created_at": "2021-06-08T06:20:07.000000Z",
         "updated_at": "2021-06-08T06:20:07.000000Z",
         "answers": [
@@ -476,12 +476,12 @@ fetch(url, {
             }
         ],
         "user": {
-            "id": 2,
-            "name": "Adi M.1",
-            "email": "ma.moldovan1@gmail.com",
+            "id": 1,
+            "name": "Inani Mate",
+            "email": "test@test.com",
             "email_verified_at": null,
-            "created_at": "2021-06-08T06:19:28.000000Z",
-            "updated_at": "2021-06-08T06:19:28.000000Z"
+            "created_at": "2021-06-08T06:19:07.000000Z",
+            "updated_at": "2021-06-08T06:19:07.000000Z"
         }
     }
 ]</code></pre>
@@ -515,7 +515,7 @@ fetch(url, {
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"question":"omnis","answers":[{"text":"qui","right":"consequatur"}]}'
+    -d '{"question":"esse","answers":[{"text":"sint","right":"et"}]}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://quiz.siit.ro/api/questions"
@@ -528,11 +528,11 @@ let headers = {
 };
 
 let body = {
-    "question": "omnis",
+    "question": "esse",
     "answers": [
         {
-            "text": "qui",
-            "right": "consequatur"
+            "text": "sint",
+            "right": "et"
         }
     ]
 }
@@ -603,7 +603,7 @@ fetch(url, {
     "http://quiz.siit.ro/api/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"lehner.odessa@example.com","name":"ex","password":"in","password_confirm":"laudantium","device_name":{}}'
+    -d '{"email":"voluptatem","name":"libero","password":"perferendis","password_confirm":"harum","device_name":"repellat"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://quiz.siit.ro/api/register"
@@ -615,11 +615,11 @@ let headers = {
 };
 
 let body = {
-    "email": "lehner.odessa@example.com",
-    "name": "ex",
-    "password": "in",
-    "password_confirm": "laudantium",
-    "device_name": {}
+    "email": "voluptatem",
+    "name": "libero",
+    "password": "perferendis",
+    "password_confirm": "harum",
+    "device_name": "repellat"
 }
 
 fetch(url, {
@@ -651,31 +651,31 @@ fetch(url, {
 <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
 <input type="text" name="email" data-endpoint="POSTapi-register" data-component="body" required  hidden>
 <br>
-The value must be a valid email address.
+user email.
 </p>
 <p>
 <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
 <input type="text" name="name" data-endpoint="POSTapi-register" data-component="body" required  hidden>
 <br>
-
+user name.
 </p>
 <p>
 <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
 <input type="password" name="password" data-endpoint="POSTapi-register" data-component="body" required  hidden>
 <br>
-
+user password.
 </p>
 <p>
 <b><code>password_confirm</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
 <input type="password" name="password_confirm" data-endpoint="POSTapi-register" data-component="body" required  hidden>
 <br>
-
+password confirmation.
 </p>
 <p>
 <b><code>device_name</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
 <input type="text" name="device_name" data-endpoint="POSTapi-register" data-component="body"  hidden>
 <br>
-
+user device name.
 </p>
 
 </form>
@@ -687,7 +687,7 @@ The value must be a valid email address.
     "http://quiz.siit.ro/api/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"xziemann@example.com","password":"ullam","device_name":{}}'
+    -d '{"email":"repellendus","password":"fugit","device_name":"soluta"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://quiz.siit.ro/api/login"
@@ -699,9 +699,9 @@ let headers = {
 };
 
 let body = {
-    "email": "xziemann@example.com",
-    "password": "ullam",
-    "device_name": {}
+    "email": "repellendus",
+    "password": "fugit",
+    "device_name": "soluta"
 }
 
 fetch(url, {
@@ -733,19 +733,19 @@ fetch(url, {
 <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
 <input type="text" name="email" data-endpoint="POSTapi-login" data-component="body" required  hidden>
 <br>
-The value must be a valid email address.
+user email.
 </p>
 <p>
 <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
 <input type="password" name="password" data-endpoint="POSTapi-login" data-component="body" required  hidden>
 <br>
-
+user name.
 </p>
 <p>
 <b><code>device_name</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
 <input type="text" name="device_name" data-endpoint="POSTapi-login" data-component="body"  hidden>
 <br>
-
+user device name.
 </p>
 
 </form>
@@ -808,12 +808,12 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://quiz.siit.ro/api/users/15" \
+    -G "http://quiz.siit.ro/api/users/9" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://quiz.siit.ro/api/users/15"
+    "http://quiz.siit.ro/api/users/9"
 );
 
 let headers = {
@@ -860,6 +860,59 @@ fetch(url, {
 <input type="number" name="user" data-endpoint="GETapi-users--user-" data-component="url" required  hidden>
 <br>
 user_id profile.
+</p>
+</form>
+<h2>Displays the profile of the authenticated user</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://quiz.siit.ro/api/profile" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://quiz.siit.ro/api/profile"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<div id="execution-results-GETapi-profile" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-profile"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-profile"></code></pre>
+</div>
+<div id="execution-error-GETapi-profile" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-profile"></code></pre>
+</div>
+<form id="form-GETapi-profile" data-method="GET" data-path="api/profile" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-profile', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-profile" onclick="tryItOut('GETapi-profile');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-profile" onclick="cancelTryOut('GETapi-profile');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-profile" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/profile</code></b>
+</p>
+<p>
+<label id="auth-GETapi-profile" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-profile" data-component="header"></label>
 </p>
 </form>
     </div>
