@@ -383,7 +383,7 @@ fetch(url, {
     {
         "id": 8,
         "question": "Iceland diverted roads to avoid disturbing communities of what?",
-        "user_id": 1,
+        "user_id": 2,
         "created_at": "2021-06-08T06:20:07.000000Z",
         "updated_at": "2021-06-08T06:20:07.000000Z",
         "answers": [
@@ -421,12 +421,12 @@ fetch(url, {
             }
         ],
         "user": {
-            "id": 1,
-            "name": "Inani Mate",
-            "email": "test@test.com",
+            "id": 2,
+            "name": "Adi M.1",
+            "email": "ma.moldovan1@gmail.com",
             "email_verified_at": null,
-            "created_at": "2021-06-08T06:19:07.000000Z",
-            "updated_at": "2021-06-08T06:19:07.000000Z"
+            "created_at": "2021-06-08T06:19:28.000000Z",
+            "updated_at": "2021-06-08T06:19:28.000000Z"
         }
     }
 ]
@@ -467,7 +467,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"question":"esse","answers":[{"text":"sint","right":"et"}]}'
+    -d '{"question":"ullam","answers":[{"text":"non","right":"quo"}]}'
 
 ```
 
@@ -483,11 +483,11 @@ let headers = {
 };
 
 let body = {
-    "question": "esse",
+    "question": "ullam",
     "answers": [
         {
-            "text": "sint",
-            "right": "et"
+            "text": "non",
+            "right": "quo"
         }
     ]
 }
@@ -552,6 +552,73 @@ fetch(url, {
 </details>
 </p>
 
+</form>
+
+
+## List of questions belonging to the authenticated user
+
+<small class="badge badge-darkred">requires authentication</small>
+
+
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://quiz.siit.ro/api/questions/own" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://quiz.siit.ro/api/questions/own"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response => response.json());
+```
+
+
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
+<div id="execution-results-GETapi-questions-own" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-questions-own"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-questions-own"></code></pre>
+</div>
+<div id="execution-error-GETapi-questions-own" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-questions-own"></code></pre>
+</div>
+<form id="form-GETapi-questions-own" data-method="GET" data-path="api/questions/own" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-questions-own', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-questions-own" onclick="tryItOut('GETapi-questions-own');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-questions-own" onclick="cancelTryOut('GETapi-questions-own');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-questions-own" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/questions/own</code></b>
+</p>
+<p>
+<label id="auth-GETapi-questions-own" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-questions-own" data-component="header"></label>
+</p>
 </form>
 
 

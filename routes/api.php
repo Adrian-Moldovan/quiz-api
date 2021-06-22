@@ -29,6 +29,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::middleware('auth:sanctum')->group(function () {
     // questions
     Route::post('/questions', [QuestionsController::class, 'store']);
+    Route::get('/questions/own', [QuestionsController::class, 'userQuestions']);
 
     // users
     Route::get('/users', [UsersController::class, 'index']);

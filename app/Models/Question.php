@@ -11,11 +11,17 @@ class Question extends Model
 
     protected $fillable = array('question', 'user_id');
 
+    protected $appends = ['author'];
+
     public function answers(){
         return $this->hasMany(Answer::class);
     }
 
     public function user(){
         return $this->belongsTo(User::class);
+    }
+
+    public function getAuthorAttribute(){
+        return $this->user->name;
     }
 }

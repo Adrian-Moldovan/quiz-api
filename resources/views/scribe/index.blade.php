@@ -44,7 +44,7 @@
                             <li><a href='http://github.com/knuckleswtf/scribe'>Documentation powered by Scribe ✍</a></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: June 16 2021</li>
+            <li>Last updated: June 22 2021</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -64,7 +64,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <p>Base URL</p>
 </blockquote>
 <pre><code class="language-yaml">http://quiz.siit.ro</code></pre><h1>Authenticating requests</h1>
-<p>This API is authenticated by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>Authenticate requests to this API's endpoints by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.</p><h1>Questions</h1>
 <h2>Display a listing of questions and available answers.</h2>
@@ -438,7 +438,7 @@ fetch(url, {
     {
         "id": 8,
         "question": "Iceland diverted roads to avoid disturbing communities of what?",
-        "user_id": 1,
+        "user_id": 2,
         "created_at": "2021-06-08T06:20:07.000000Z",
         "updated_at": "2021-06-08T06:20:07.000000Z",
         "answers": [
@@ -476,12 +476,12 @@ fetch(url, {
             }
         ],
         "user": {
-            "id": 1,
-            "name": "Inani Mate",
-            "email": "test@test.com",
+            "id": 2,
+            "name": "Adi M.1",
+            "email": "ma.moldovan1@gmail.com",
             "email_verified_at": null,
-            "created_at": "2021-06-08T06:19:07.000000Z",
-            "updated_at": "2021-06-08T06:19:07.000000Z"
+            "created_at": "2021-06-08T06:19:28.000000Z",
+            "updated_at": "2021-06-08T06:19:28.000000Z"
         }
     }
 ]</code></pre>
@@ -515,7 +515,7 @@ fetch(url, {
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"question":"esse","answers":[{"text":"sint","right":"et"}]}'
+    -d '{"question":"ullam","answers":[{"text":"non","right":"quo"}]}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://quiz.siit.ro/api/questions"
@@ -528,11 +528,11 @@ let headers = {
 };
 
 let body = {
-    "question": "esse",
+    "question": "ullam",
     "answers": [
         {
-            "text": "sint",
-            "right": "et"
+            "text": "non",
+            "right": "quo"
         }
     ]
 }
@@ -594,6 +594,59 @@ fetch(url, {
 </details>
 </p>
 
+</form>
+<h2>List of questions belonging to the authenticated user</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://quiz.siit.ro/api/questions/own" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://quiz.siit.ro/api/questions/own"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<div id="execution-results-GETapi-questions-own" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-questions-own"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-questions-own"></code></pre>
+</div>
+<div id="execution-error-GETapi-questions-own" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-questions-own"></code></pre>
+</div>
+<form id="form-GETapi-questions-own" data-method="GET" data-path="api/questions/own" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-questions-own', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-questions-own" onclick="tryItOut('GETapi-questions-own');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-questions-own" onclick="cancelTryOut('GETapi-questions-own');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-questions-own" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/questions/own</code></b>
+</p>
+<p>
+<label id="auth-GETapi-questions-own" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-questions-own" data-component="header"></label>
+</p>
 </form><h1>Users</h1>
 <h2>Register a new user</h2>
 <blockquote>
@@ -603,7 +656,7 @@ fetch(url, {
     "http://quiz.siit.ro/api/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"voluptatem","name":"libero","password":"perferendis","password_confirm":"harum","device_name":"repellat"}'
+    -d '{"email":"totam","name":"quis","password":"adipisci","password_confirm":"perspiciatis","device_name":"accusamus"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://quiz.siit.ro/api/register"
@@ -615,11 +668,11 @@ let headers = {
 };
 
 let body = {
-    "email": "voluptatem",
-    "name": "libero",
-    "password": "perferendis",
-    "password_confirm": "harum",
-    "device_name": "repellat"
+    "email": "totam",
+    "name": "quis",
+    "password": "adipisci",
+    "password_confirm": "perspiciatis",
+    "device_name": "accusamus"
 }
 
 fetch(url, {
@@ -687,7 +740,7 @@ user device name.
     "http://quiz.siit.ro/api/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"repellendus","password":"fugit","device_name":"soluta"}'
+    -d '{"email":"magnam","password":"ab","device_name":"voluptas"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://quiz.siit.ro/api/login"
@@ -699,9 +752,9 @@ let headers = {
 };
 
 let body = {
-    "email": "repellendus",
-    "password": "fugit",
-    "device_name": "soluta"
+    "email": "magnam",
+    "password": "ab",
+    "device_name": "voluptas"
 }
 
 fetch(url, {
@@ -808,12 +861,12 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://quiz.siit.ro/api/users/9" \
+    -G "http://quiz.siit.ro/api/users/3" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://quiz.siit.ro/api/users/9"
+    "http://quiz.siit.ro/api/users/3"
 );
 
 let headers = {

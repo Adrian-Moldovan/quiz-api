@@ -13,7 +13,7 @@ curl -X POST \
     "http://quiz.siit.ro/api/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"voluptatem","name":"libero","password":"perferendis","password_confirm":"harum","device_name":"repellat"}'
+    -d '{"email":"totam","name":"quis","password":"adipisci","password_confirm":"perspiciatis","device_name":"accusamus"}'
 
 ```
 
@@ -28,11 +28,11 @@ let headers = {
 };
 
 let body = {
-    "email": "voluptatem",
-    "name": "libero",
-    "password": "perferendis",
-    "password_confirm": "harum",
-    "device_name": "repellat"
+    "email": "totam",
+    "name": "quis",
+    "password": "adipisci",
+    "password_confirm": "perspiciatis",
+    "device_name": "accusamus"
 }
 
 fetch(url, {
@@ -109,7 +109,7 @@ curl -X POST \
     "http://quiz.siit.ro/api/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"repellendus","password":"fugit","device_name":"soluta"}'
+    -d '{"email":"magnam","password":"ab","device_name":"voluptas"}'
 
 ```
 
@@ -124,9 +124,9 @@ let headers = {
 };
 
 let body = {
-    "email": "repellendus",
-    "password": "fugit",
-    "device_name": "soluta"
+    "email": "magnam",
+    "password": "ab",
+    "device_name": "voluptas"
 }
 
 fetch(url, {
@@ -256,7 +256,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://quiz.siit.ro/api/users/9" \
+    -G "http://quiz.siit.ro/api/users/3" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -264,7 +264,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://quiz.siit.ro/api/users/9"
+    "http://quiz.siit.ro/api/users/3"
 );
 
 let headers = {

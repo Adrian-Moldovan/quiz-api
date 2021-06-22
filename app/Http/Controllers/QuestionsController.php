@@ -21,7 +21,28 @@ class QuestionsController extends Controller
     public function index()
     {
         //
-        return Question::with('answers')->with('user')->get();
+        return Question::with(['answers']) 
+            -> get() 
+            -> map( function($question){
+                $data = $question -> only(['id','question','author']);
+                $data['answers'] = $question -> answers -> map(function($answer){
+                    return $answer -> only(['id','text','right']);
+                });
+                return $data;
+            });
+    }
+
+    /**
+     * List of questions belonging to the authenticated user
+     *
+     * @group Questions
+     * @authenticated
+     * @return \Illuminate\Http\Response
+     */
+    public function userQuestions()
+    {
+        //
+        return Question::with('answers')->where('user_id', Auth::id())->get();
     }
 
     /**
