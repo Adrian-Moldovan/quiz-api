@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\Routing\Exception\RouteNotFoundException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -42,5 +43,10 @@ class Handler extends ExceptionHandler
         $this->renderable(function (NotFoundHttpException $e, $request) {
             return response()->json(['message' => 'Resource not found'], 404);
         });
+
+        $this->renderable(function (RouteNotFoundException $e, $request) {
+           return response()->json(['message' => $e->getMessage()], 404);
+        });
+
     }
 }

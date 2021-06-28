@@ -18,6 +18,14 @@ use App\Http\Controllers\UsersController;
 |
 */
 
+/**
+ * @hideFromAPIDocumentation 
+ */
+Route::get('json-required', function(Request $request){
+    return response()->json(['message' => 'The request must have headers "Accept: application/json"'], 406);
+})->name('json-required');
+
+
 // Public questions
 Route::get('/questions', [QuestionsController::class, 'index']);
 
@@ -29,10 +37,13 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::middleware('auth:sanctum')->group(function () {
     // questions
     Route::post('/questions', [QuestionsController::class, 'store']);
+    Route::delete('/questions/{question}', [QuestionsController::class, 'destroy']);
     Route::get('/questions/own', [QuestionsController::class, 'userQuestions']);
+    
 
     // users
     Route::get('/users', [UsersController::class, 'index']);
     Route::get('/users/{user}', [UsersController::class, 'show']);
     Route::get('/profile', [UsersController::class, 'profile']);
 });
+

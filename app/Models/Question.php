@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Answer;
 
 class Question extends Model
 {
@@ -23,5 +24,10 @@ class Question extends Model
 
     public function getAuthorAttribute(){
         return $this->user->name;
+    }
+
+    public function deleteQuestion(int $questionId){
+        Answer::where('question_id', $questionId)->delete();
+        $this->delete();
     }
 }

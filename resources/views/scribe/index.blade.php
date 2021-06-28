@@ -44,7 +44,7 @@
                             <li><a href='http://github.com/knuckleswtf/scribe'>Documentation powered by Scribe ✍</a></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: June 22 2021</li>
+            <li>Last updated: June 28 2021</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -64,20 +64,27 @@ You can switch the language used with the tabs at the top right (or from the nav
 <p>Base URL</p>
 </blockquote>
 <pre><code class="language-yaml">http://quiz.siit.ro</code></pre><h1>Authenticating requests</h1>
-<p>Authenticate requests to this API's endpoints by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>This API is authenticated by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.</p><h1>Questions</h1>
-<h2>Display a listing of questions and available answers.</h2>
+<h2>Listing the questions and available answers.</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://quiz.siit.ro/api/questions" \
+    -G "http://quiz.siit.ro/api/questions?limit=18&amp;random=" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://quiz.siit.ro/api/questions"
 );
+
+let params = {
+    "limit": "18",
+    "random": "",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 let headers = {
     "Content-Type": "application/json",
@@ -95,394 +102,56 @@ fetch(url, {
     {
         "id": 1,
         "question": "What is the capital of Chile?",
-        "user_id": 1,
-        "created_at": "2021-06-08T06:19:07.000000Z",
-        "updated_at": "2021-06-08T06:19:07.000000Z",
+        "author": "Inani Mate",
         "answers": [
             {
                 "id": 1,
                 "text": "Santiago",
-                "right": 1,
-                "question_id": 1,
-                "created_at": "2021-06-08T06:19:07.000000Z",
-                "updated_at": "2021-06-08T06:19:07.000000Z"
+                "right": "1"
             },
             {
                 "id": 2,
                 "text": "Buenos Aires",
-                "right": 0,
-                "question_id": 1,
-                "created_at": "2021-06-08T06:19:07.000000Z",
-                "updated_at": "2021-06-08T06:19:07.000000Z"
+                "right": "0"
             },
             {
                 "id": 3,
                 "text": "Bucharest",
-                "right": 0,
-                "question_id": 1,
-                "created_at": "2021-06-08T06:19:07.000000Z",
-                "updated_at": "2021-06-08T06:19:07.000000Z"
+                "right": "0"
             },
             {
                 "id": 4,
                 "text": "Russia",
-                "right": 0,
-                "question_id": 1,
-                "created_at": "2021-06-08T06:19:07.000000Z",
-                "updated_at": "2021-06-08T06:19:07.000000Z"
+                "right": "0"
             }
-        ],
-        "user": {
-            "id": 1,
-            "name": "Inani Mate",
-            "email": "test@test.com",
-            "email_verified_at": null,
-            "created_at": "2021-06-08T06:19:07.000000Z",
-            "updated_at": "2021-06-08T06:19:07.000000Z"
-        }
+        ]
     },
     {
         "id": 2,
         "question": "What is the smallest country in the world?",
-        "user_id": 1,
-        "created_at": "2021-06-08T06:19:07.000000Z",
-        "updated_at": "2021-06-08T06:19:07.000000Z",
+        "author": "Inani Mate",
         "answers": [
             {
-                "id": 5,
+                "id": 1,
                 "text": "Vatican City",
-                "right": 1,
-                "question_id": 2,
-                "created_at": "2021-06-08T06:19:07.000000Z",
-                "updated_at": "2021-06-08T06:19:07.000000Z"
+                "right": "1"
             },
             {
-                "id": 6,
+                "id": 2,
                 "text": "Luxemburg",
-                "right": 0,
-                "question_id": 2,
-                "created_at": "2021-06-08T06:19:07.000000Z",
-                "updated_at": "2021-06-08T06:19:07.000000Z"
+                "right": "0"
             },
             {
-                "id": 7,
+                "id": 3,
                 "text": "India",
-                "right": 0,
-                "question_id": 2,
-                "created_at": "2021-06-08T06:19:07.000000Z",
-                "updated_at": "2021-06-08T06:19:07.000000Z"
+                "right": "0"
             },
             {
-                "id": 8,
+                "id": 4,
                 "text": "Liechtenstein",
-                "right": 0,
-                "question_id": 2,
-                "created_at": "2021-06-08T06:19:07.000000Z",
-                "updated_at": "2021-06-08T06:19:07.000000Z"
+                "right": "0"
             }
-        ],
-        "user": {
-            "id": 1,
-            "name": "Inani Mate",
-            "email": "test@test.com",
-            "email_verified_at": null,
-            "created_at": "2021-06-08T06:19:07.000000Z",
-            "updated_at": "2021-06-08T06:19:07.000000Z"
-        }
-    },
-    {
-        "id": 3,
-        "question": "What is the most famous Mexican beer?",
-        "user_id": 1,
-        "created_at": "2021-06-08T06:19:07.000000Z",
-        "updated_at": "2021-06-08T06:19:07.000000Z",
-        "answers": [
-            {
-                "id": 9,
-                "text": "Corona",
-                "right": 1,
-                "question_id": 3,
-                "created_at": "2021-06-08T06:19:07.000000Z",
-                "updated_at": "2021-06-08T06:19:07.000000Z"
-            },
-            {
-                "id": 10,
-                "text": "Timisoreana",
-                "right": 0,
-                "question_id": 3,
-                "created_at": "2021-06-08T06:19:07.000000Z",
-                "updated_at": "2021-06-08T06:19:07.000000Z"
-            },
-            {
-                "id": 11,
-                "text": "Ursus",
-                "right": 0,
-                "question_id": 3,
-                "created_at": "2021-06-08T06:19:07.000000Z",
-                "updated_at": "2021-06-08T06:19:07.000000Z"
-            },
-            {
-                "id": 12,
-                "text": "Palinca de prune",
-                "right": 0,
-                "question_id": 3,
-                "created_at": "2021-06-08T06:19:07.000000Z",
-                "updated_at": "2021-06-08T06:19:07.000000Z"
-            }
-        ],
-        "user": {
-            "id": 1,
-            "name": "Inani Mate",
-            "email": "test@test.com",
-            "email_verified_at": null,
-            "created_at": "2021-06-08T06:19:07.000000Z",
-            "updated_at": "2021-06-08T06:19:07.000000Z"
-        }
-    },
-    {
-        "id": 4,
-        "question": "What is Scooby Doo’s full name?",
-        "user_id": 1,
-        "created_at": "2021-06-08T06:19:07.000000Z",
-        "updated_at": "2021-06-08T06:19:07.000000Z",
-        "answers": [
-            {
-                "id": 13,
-                "text": "Scoobert Doo",
-                "right": 1,
-                "question_id": 4,
-                "created_at": "2021-06-08T06:19:07.000000Z",
-                "updated_at": "2021-06-08T06:19:07.000000Z"
-            },
-            {
-                "id": 14,
-                "text": "Scoob Doolitle",
-                "right": 0,
-                "question_id": 4,
-                "created_at": "2021-06-08T06:19:07.000000Z",
-                "updated_at": "2021-06-08T06:19:07.000000Z"
-            },
-            {
-                "id": 15,
-                "text": "Scooba Dive",
-                "right": 0,
-                "question_id": 4,
-                "created_at": "2021-06-08T06:19:07.000000Z",
-                "updated_at": "2021-06-08T06:19:07.000000Z"
-            },
-            {
-                "id": 16,
-                "text": "Greg",
-                "right": 0,
-                "question_id": 4,
-                "created_at": "2021-06-08T06:19:07.000000Z",
-                "updated_at": "2021-06-08T06:19:07.000000Z"
-            }
-        ],
-        "user": {
-            "id": 1,
-            "name": "Inani Mate",
-            "email": "test@test.com",
-            "email_verified_at": null,
-            "created_at": "2021-06-08T06:19:07.000000Z",
-            "updated_at": "2021-06-08T06:19:07.000000Z"
-        }
-    },
-    {
-        "id": 5,
-        "question": "What is the collective noun for a group of unicorns?",
-        "user_id": 1,
-        "created_at": "2021-06-08T06:19:07.000000Z",
-        "updated_at": "2021-06-08T06:19:07.000000Z",
-        "answers": [
-            {
-                "id": 17,
-                "text": "A blessing",
-                "right": 1,
-                "question_id": 5,
-                "created_at": "2021-06-08T06:19:07.000000Z",
-                "updated_at": "2021-06-08T06:19:07.000000Z"
-            },
-            {
-                "id": 18,
-                "text": "A pack",
-                "right": 0,
-                "question_id": 5,
-                "created_at": "2021-06-08T06:19:07.000000Z",
-                "updated_at": "2021-06-08T06:19:07.000000Z"
-            },
-            {
-                "id": 19,
-                "text": "A gang",
-                "right": 0,
-                "question_id": 5,
-                "created_at": "2021-06-08T06:19:07.000000Z",
-                "updated_at": "2021-06-08T06:19:07.000000Z"
-            },
-            {
-                "id": 20,
-                "text": "A flock",
-                "right": 0,
-                "question_id": 5,
-                "created_at": "2021-06-08T06:19:07.000000Z",
-                "updated_at": "2021-06-08T06:19:07.000000Z"
-            }
-        ],
-        "user": {
-            "id": 1,
-            "name": "Inani Mate",
-            "email": "test@test.com",
-            "email_verified_at": null,
-            "created_at": "2021-06-08T06:19:07.000000Z",
-            "updated_at": "2021-06-08T06:19:07.000000Z"
-        }
-    },
-    {
-        "id": 6,
-        "question": "Who composed the music for Sonic the Hedgehog 3?",
-        "user_id": 1,
-        "created_at": "2021-06-08T06:19:07.000000Z",
-        "updated_at": "2021-06-08T06:19:07.000000Z",
-        "answers": [
-            {
-                "id": 21,
-                "text": "Michael Jackson",
-                "right": 1,
-                "question_id": 6,
-                "created_at": "2021-06-08T06:19:07.000000Z",
-                "updated_at": "2021-06-08T06:19:07.000000Z"
-            },
-            {
-                "id": 22,
-                "text": "Fuego",
-                "right": 0,
-                "question_id": 6,
-                "created_at": "2021-06-08T06:19:07.000000Z",
-                "updated_at": "2021-06-08T06:19:07.000000Z"
-            },
-            {
-                "id": 23,
-                "text": "The Pope",
-                "right": 0,
-                "question_id": 6,
-                "created_at": "2021-06-08T06:19:07.000000Z",
-                "updated_at": "2021-06-08T06:19:07.000000Z"
-            },
-            {
-                "id": 24,
-                "text": "Himself",
-                "right": 0,
-                "question_id": 6,
-                "created_at": "2021-06-08T06:19:07.000000Z",
-                "updated_at": "2021-06-08T06:19:07.000000Z"
-            }
-        ],
-        "user": {
-            "id": 1,
-            "name": "Inani Mate",
-            "email": "test@test.com",
-            "email_verified_at": null,
-            "created_at": "2021-06-08T06:19:07.000000Z",
-            "updated_at": "2021-06-08T06:19:07.000000Z"
-        }
-    },
-    {
-        "id": 7,
-        "question": "The first hockey pucks used in early outdoor hockey games were made of what?",
-        "user_id": 1,
-        "created_at": "2021-06-08T06:19:07.000000Z",
-        "updated_at": "2021-06-08T06:19:07.000000Z",
-        "answers": [
-            {
-                "id": 25,
-                "text": "Frozen cow dung",
-                "right": 1,
-                "question_id": 7,
-                "created_at": "2021-06-08T06:19:07.000000Z",
-                "updated_at": "2021-06-08T06:19:07.000000Z"
-            },
-            {
-                "id": 26,
-                "text": "Frozen chicken dung",
-                "right": 0,
-                "question_id": 7,
-                "created_at": "2021-06-08T06:19:07.000000Z",
-                "updated_at": "2021-06-08T06:19:07.000000Z"
-            },
-            {
-                "id": 27,
-                "text": "Guano",
-                "right": 0,
-                "question_id": 7,
-                "created_at": "2021-06-08T06:19:07.000000Z",
-                "updated_at": "2021-06-08T06:19:07.000000Z"
-            },
-            {
-                "id": 28,
-                "text": "Leather",
-                "right": 0,
-                "question_id": 7,
-                "created_at": "2021-06-08T06:19:07.000000Z",
-                "updated_at": "2021-06-08T06:19:07.000000Z"
-            }
-        ],
-        "user": {
-            "id": 1,
-            "name": "Inani Mate",
-            "email": "test@test.com",
-            "email_verified_at": null,
-            "created_at": "2021-06-08T06:19:07.000000Z",
-            "updated_at": "2021-06-08T06:19:07.000000Z"
-        }
-    },
-    {
-        "id": 8,
-        "question": "Iceland diverted roads to avoid disturbing communities of what?",
-        "user_id": 2,
-        "created_at": "2021-06-08T06:20:07.000000Z",
-        "updated_at": "2021-06-08T06:20:07.000000Z",
-        "answers": [
-            {
-                "id": 29,
-                "text": "Moose",
-                "right": 0,
-                "question_id": 8,
-                "created_at": "2021-06-08T06:20:07.000000Z",
-                "updated_at": "2021-06-08T06:20:07.000000Z"
-            },
-            {
-                "id": 30,
-                "text": "Dwarfs",
-                "right": 0,
-                "question_id": 8,
-                "created_at": "2021-06-08T06:20:07.000000Z",
-                "updated_at": "2021-06-08T06:20:07.000000Z"
-            },
-            {
-                "id": 31,
-                "text": "Beavers",
-                "right": 0,
-                "question_id": 8,
-                "created_at": "2021-06-08T06:20:07.000000Z",
-                "updated_at": "2021-06-08T06:20:07.000000Z"
-            },
-            {
-                "id": 32,
-                "text": "Elves",
-                "right": 1,
-                "question_id": 8,
-                "created_at": "2021-06-08T06:20:07.000000Z",
-                "updated_at": "2021-06-08T06:20:07.000000Z"
-            }
-        ],
-        "user": {
-            "id": 2,
-            "name": "Adi M.1",
-            "email": "ma.moldovan1@gmail.com",
-            "email_verified_at": null,
-            "created_at": "2021-06-08T06:19:28.000000Z",
-            "updated_at": "2021-06-08T06:19:28.000000Z"
-        }
+        ]
     }
 ]</code></pre>
 <div id="execution-results-GETapi-questions" hidden>
@@ -504,6 +173,20 @@ fetch(url, {
 <small class="badge badge-green">GET</small>
  <b><code>api/questions</code></b>
 </p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p>
+<b><code>limit</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+<input type="number" name="limit" data-endpoint="GETapi-questions" data-component="query"  hidden>
+<br>
+
+</p>
+<p>
+<b><code>random</code></b>&nbsp;&nbsp;<small>boolean</small>     <i>optional</i> &nbsp;
+<label data-endpoint="GETapi-questions" hidden><input type="radio" name="random" value="1" data-endpoint="GETapi-questions" data-component="query" ><code>true</code></label>
+<label data-endpoint="GETapi-questions" hidden><input type="radio" name="random" value="0" data-endpoint="GETapi-questions" data-component="query" ><code>false</code></label>
+<br>
+
+</p>
 </form>
 <h2>Store question and its answers.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
@@ -515,7 +198,7 @@ fetch(url, {
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"question":"ullam","answers":[{"text":"non","right":"quo"}]}'
+    -d '{"question":"beatae","answers":[{"text":"odit","right":"assumenda"}]}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://quiz.siit.ro/api/questions"
@@ -528,11 +211,11 @@ let headers = {
 };
 
 let body = {
-    "question": "ullam",
+    "question": "beatae",
     "answers": [
         {
-            "text": "non",
-            "right": "quo"
+            "text": "odit",
+            "right": "assumenda"
         }
     ]
 }
@@ -595,6 +278,61 @@ fetch(url, {
 </p>
 
 </form>
+<h2>Delete a question its answers.</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="notice">Must be the author of the question in order to be able to delete it.</aside>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "http://quiz.siit.ro/api/questions/18" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://quiz.siit.ro/api/questions/18"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<div id="execution-results-DELETEapi-questions--question-" hidden>
+    <blockquote>Received response<span id="execution-response-status-DELETEapi-questions--question-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-questions--question-"></code></pre>
+</div>
+<div id="execution-error-DELETEapi-questions--question-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-questions--question-"></code></pre>
+</div>
+<form id="form-DELETEapi-questions--question-" data-method="DELETE" data-path="api/questions/{question}" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('DELETEapi-questions--question-', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-DELETEapi-questions--question-" onclick="tryItOut('DELETEapi-questions--question-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-DELETEapi-questions--question-" onclick="cancelTryOut('DELETEapi-questions--question-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-DELETEapi-questions--question-" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-red">DELETE</small>
+ <b><code>api/questions/{question}</code></b>
+</p>
+<p>
+<label id="auth-DELETEapi-questions--question-" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="DELETEapi-questions--question-" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>question</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="question" data-endpoint="DELETEapi-questions--question-" data-component="url" required  hidden>
+<br>
+The id of the question to be deleted;
+</p>
+</form>
 <h2>List of questions belonging to the authenticated user</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <blockquote>
@@ -656,7 +394,7 @@ fetch(url, {
     "http://quiz.siit.ro/api/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"totam","name":"quis","password":"adipisci","password_confirm":"perspiciatis","device_name":"accusamus"}'
+    -d '{"email":"sunt","name":"corporis","password":"reprehenderit","password_confirm":"repellat","device_name":"pariatur"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://quiz.siit.ro/api/register"
@@ -668,11 +406,11 @@ let headers = {
 };
 
 let body = {
-    "email": "totam",
-    "name": "quis",
-    "password": "adipisci",
-    "password_confirm": "perspiciatis",
-    "device_name": "accusamus"
+    "email": "sunt",
+    "name": "corporis",
+    "password": "reprehenderit",
+    "password_confirm": "repellat",
+    "device_name": "pariatur"
 }
 
 fetch(url, {
@@ -740,7 +478,7 @@ user device name.
     "http://quiz.siit.ro/api/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"magnam","password":"ab","device_name":"voluptas"}'
+    -d '{"email":"quidem","password":"et","device_name":"sit"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://quiz.siit.ro/api/login"
@@ -752,9 +490,9 @@ let headers = {
 };
 
 let body = {
-    "email": "magnam",
-    "password": "ab",
-    "device_name": "voluptas"
+    "email": "quidem",
+    "password": "et",
+    "device_name": "sit"
 }
 
 fetch(url, {
@@ -861,12 +599,12 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://quiz.siit.ro/api/users/3" \
+    -G "http://quiz.siit.ro/api/users/14" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://quiz.siit.ro/api/users/3"
+    "http://quiz.siit.ro/api/users/14"
 );
 
 let headers = {
