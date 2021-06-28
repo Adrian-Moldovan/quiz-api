@@ -190,7 +190,7 @@ class QuestionsController extends Controller
      */
     public function destroy(Question $question)
     {
-        if($question->user_id !== Auth::id()){
+        if($question->user_id !== (string)Auth::id()){
             return response()->json(['message' => 'Resource does not belong to authenticated user'], Response::HTTP_FORBIDDEN);
         }
 
