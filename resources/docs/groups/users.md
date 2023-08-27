@@ -10,16 +10,16 @@
 
 ```bash
 curl -X POST \
-    "http://quiz.siit.ro/api/register" \
+    "https://quiz-api.siit.ro/api/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"sunt","name":"corporis","password":"reprehenderit","password_confirm":"repellat","device_name":"pariatur"}'
+    -d '{"email":"id","name":"dolor","password":"magni","password_confirm":"dolor","device_name":"aut"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://quiz.siit.ro/api/register"
+    "https://quiz-api.siit.ro/api/register"
 );
 
 let headers = {
@@ -28,11 +28,11 @@ let headers = {
 };
 
 let body = {
-    "email": "sunt",
-    "name": "corporis",
-    "password": "reprehenderit",
-    "password_confirm": "repellat",
-    "device_name": "pariatur"
+    "email": "id",
+    "name": "dolor",
+    "password": "magni",
+    "password_confirm": "dolor",
+    "device_name": "aut"
 }
 
 fetch(url, {
@@ -106,16 +106,16 @@ user device name.
 
 ```bash
 curl -X POST \
-    "http://quiz.siit.ro/api/login" \
+    "https://quiz-api.siit.ro/api/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"quidem","password":"et","device_name":"sit"}'
+    -d '{"email":"debitis","password":"culpa","device_name":"qui"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://quiz.siit.ro/api/login"
+    "https://quiz-api.siit.ro/api/login"
 );
 
 let headers = {
@@ -124,9 +124,9 @@ let headers = {
 };
 
 let body = {
-    "email": "quidem",
-    "password": "et",
-    "device_name": "sit"
+    "email": "debitis",
+    "password": "culpa",
+    "device_name": "qui"
 }
 
 fetch(url, {
@@ -189,7 +189,7 @@ user device name.
 
 ```bash
 curl -X GET \
-    -G "http://quiz.siit.ro/api/users" \
+    -G "https://quiz-api.siit.ro/api/users" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -197,7 +197,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://quiz.siit.ro/api/users"
+    "https://quiz-api.siit.ro/api/users"
 );
 
 let headers = {
@@ -256,7 +256,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://quiz.siit.ro/api/users/14" \
+    -G "https://quiz-api.siit.ro/api/users/7" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -264,7 +264,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://quiz.siit.ro/api/users/14"
+    "https://quiz-api.siit.ro/api/users/7"
 );
 
 let headers = {
@@ -330,7 +330,7 @@ user_id profile.
 
 ```bash
 curl -X GET \
-    -G "http://quiz.siit.ro/api/profile" \
+    -G "https://quiz-api.siit.ro/api/profile" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -338,7 +338,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://quiz.siit.ro/api/profile"
+    "https://quiz-api.siit.ro/api/profile"
 );
 
 let headers = {

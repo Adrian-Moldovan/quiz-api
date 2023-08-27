@@ -44,7 +44,7 @@
                             <li><a href='http://github.com/knuckleswtf/scribe'>Documentation powered by Scribe ✍</a></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: June 28 2021</li>
+            <li>Last updated: August 24 2023</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -72,16 +72,16 @@ You can switch the language used with the tabs at the top right (or from the nav
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://quiz.siit.ro/api/questions?limit=18&amp;random=" \
+    -G "https://quiz-api.siit.ro/api/questions?limit=12&amp;random=1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://quiz.siit.ro/api/questions"
+    "https://quiz-api.siit.ro/api/questions"
 );
 
 let params = {
-    "limit": "18",
-    "random": "",
+    "limit": "12",
+    "random": "1",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -194,14 +194,14 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://quiz.siit.ro/api/questions" \
+    "https://quiz-api.siit.ro/api/questions" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"question":"beatae","answers":[{"text":"odit","right":"assumenda"}]}'
+    -d '{"question":"quo","answers":[{"text":"sed","right":"sunt"}]}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://quiz.siit.ro/api/questions"
+    "https://quiz-api.siit.ro/api/questions"
 );
 
 let headers = {
@@ -211,11 +211,11 @@ let headers = {
 };
 
 let body = {
-    "question": "beatae",
+    "question": "quo",
     "answers": [
         {
-            "text": "odit",
-            "right": "assumenda"
+            "text": "sed",
+            "right": "sunt"
         }
     ]
 }
@@ -285,12 +285,12 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
-    "http://quiz.siit.ro/api/questions/18" \
+    "https://quiz-api.siit.ro/api/questions/5" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://quiz.siit.ro/api/questions/18"
+    "https://quiz-api.siit.ro/api/questions/5"
 );
 
 let headers = {
@@ -339,12 +339,12 @@ The id of the question to be deleted;
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://quiz.siit.ro/api/questions/own" \
+    -G "https://quiz-api.siit.ro/api/questions/own" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://quiz.siit.ro/api/questions/own"
+    "https://quiz-api.siit.ro/api/questions/own"
 );
 
 let headers = {
@@ -391,13 +391,13 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://quiz.siit.ro/api/register" \
+    "https://quiz-api.siit.ro/api/register" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"sunt","name":"corporis","password":"reprehenderit","password_confirm":"repellat","device_name":"pariatur"}'
+    -d '{"email":"id","name":"dolor","password":"magni","password_confirm":"dolor","device_name":"aut"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://quiz.siit.ro/api/register"
+    "https://quiz-api.siit.ro/api/register"
 );
 
 let headers = {
@@ -406,11 +406,11 @@ let headers = {
 };
 
 let body = {
-    "email": "sunt",
-    "name": "corporis",
-    "password": "reprehenderit",
-    "password_confirm": "repellat",
-    "device_name": "pariatur"
+    "email": "id",
+    "name": "dolor",
+    "password": "magni",
+    "password_confirm": "dolor",
+    "device_name": "aut"
 }
 
 fetch(url, {
@@ -475,13 +475,13 @@ user device name.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://quiz.siit.ro/api/login" \
+    "https://quiz-api.siit.ro/api/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"quidem","password":"et","device_name":"sit"}'
+    -d '{"email":"debitis","password":"culpa","device_name":"qui"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://quiz.siit.ro/api/login"
+    "https://quiz-api.siit.ro/api/login"
 );
 
 let headers = {
@@ -490,9 +490,9 @@ let headers = {
 };
 
 let body = {
-    "email": "quidem",
-    "password": "et",
-    "device_name": "sit"
+    "email": "debitis",
+    "password": "culpa",
+    "device_name": "qui"
 }
 
 fetch(url, {
@@ -546,12 +546,12 @@ user device name.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://quiz.siit.ro/api/users" \
+    -G "https://quiz-api.siit.ro/api/users" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://quiz.siit.ro/api/users"
+    "https://quiz-api.siit.ro/api/users"
 );
 
 let headers = {
@@ -599,12 +599,12 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://quiz.siit.ro/api/users/14" \
+    -G "https://quiz-api.siit.ro/api/users/7" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://quiz.siit.ro/api/users/14"
+    "https://quiz-api.siit.ro/api/users/7"
 );
 
 let headers = {
@@ -659,12 +659,12 @@ user_id profile.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://quiz.siit.ro/api/profile" \
+    -G "https://quiz-api.siit.ro/api/profile" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://quiz.siit.ro/api/profile"
+    "https://quiz-api.siit.ro/api/profile"
 );
 
 let headers = {

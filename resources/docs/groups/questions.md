@@ -10,19 +10,19 @@
 
 ```bash
 curl -X GET \
-    -G "http://quiz.siit.ro/api/questions?limit=18&random=" \
+    -G "https://quiz-api.siit.ro/api/questions?limit=12&random=1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://quiz.siit.ro/api/questions"
+    "https://quiz-api.siit.ro/api/questions"
 );
 
 let params = {
-    "limit": "18",
-    "random": "",
+    "limit": "12",
+    "random": "1",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -146,17 +146,17 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://quiz.siit.ro/api/questions" \
+    "https://quiz-api.siit.ro/api/questions" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"question":"beatae","answers":[{"text":"odit","right":"assumenda"}]}'
+    -d '{"question":"quo","answers":[{"text":"sed","right":"sunt"}]}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://quiz.siit.ro/api/questions"
+    "https://quiz-api.siit.ro/api/questions"
 );
 
 let headers = {
@@ -166,11 +166,11 @@ let headers = {
 };
 
 let body = {
-    "question": "beatae",
+    "question": "quo",
     "answers": [
         {
-            "text": "odit",
-            "right": "assumenda"
+            "text": "sed",
+            "right": "sunt"
         }
     ]
 }
@@ -248,7 +248,7 @@ fetch(url, {
 
 ```bash
 curl -X DELETE \
-    "http://quiz.siit.ro/api/questions/18" \
+    "https://quiz-api.siit.ro/api/questions/5" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -256,7 +256,7 @@ curl -X DELETE \
 
 ```javascript
 const url = new URL(
-    "http://quiz.siit.ro/api/questions/18"
+    "https://quiz-api.siit.ro/api/questions/5"
 );
 
 let headers = {
@@ -315,7 +315,7 @@ The id of the question to be deleted;
 
 ```bash
 curl -X GET \
-    -G "http://quiz.siit.ro/api/questions/own" \
+    -G "https://quiz-api.siit.ro/api/questions/own" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
@@ -323,7 +323,7 @@ curl -X GET \
 
 ```javascript
 const url = new URL(
-    "http://quiz.siit.ro/api/questions/own"
+    "https://quiz-api.siit.ro/api/questions/own"
 );
 
 let headers = {
